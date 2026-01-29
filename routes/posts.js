@@ -1,23 +1,22 @@
-const express = require("express")
-const router = express.Router()
-const postController = require("../controllers/postController")
+const express = require("express");
+const router = express.Router();
 
-
-router.post("/create", postController.createPost)
-router.get("/", postController.getAllposts)
-router.get("/id/:_id", postController.getPostById)
-router.get("/title/:title", postController.getPostByTitle)
-router.put("/id/:_id", postController.updatePost)
-router.delete("/id/:_id", postController.deletePost)
-
-router.get("/getPostWithPagination")
+const postController = require("../controllers/postController");
 
 
 
-module.exports = router
+router.post("/create", postController.createPost);
 
+router.get("/", postController.getAllPosts);
 
+router.get("/id/:_id", postController.getPostById);
 
+router.get("/title/:title", postController.getPostByTitle);
 
+router.put("/id/:_id", postController.updatePost);
 
+router.delete("/id/:_id", postController.deletePost);
 
+router.get("/postsWithPagination", postController.postWithPagination);
+
+module.exports = router;

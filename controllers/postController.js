@@ -26,7 +26,7 @@ exports.getAllPosts = async (req,res)=>{
 
 exports.getPostById = async (req,res)=>{
     const post = await Post.findById(req.params._id)
-    res,json(post)
+    res.json(post)
 }
 
 // OBTENER MEDIANTE EL NOMBRE DEL TITULO
@@ -49,14 +49,14 @@ exports.updatePost= async (req,res) => {
 
 //BORRAR MEDIANTE ID
 
-exports.deletePost = async (res,res) =>{
+exports.deletePost = async (req,res) =>{
     await Post.findByIdAndDelete(req.params._id)
     res.json({message: "Post borrado"})
 }
 
 //PAGINACION
 
-exports.getPostWithPagination = async (req,res) =>{
+exports.postWithPagination = async (req,res) =>{
     const page = parseInt(req.query.page) || 1
     const limit = 10
 
